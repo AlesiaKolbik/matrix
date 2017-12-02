@@ -1,8 +1,11 @@
 package com.company;
 
-public class matrix {
-    int matrix[][] = new int[12][5];
+public class Matrix {
+    private int matrix[][];
 
+    Matrix() {
+        matrix = new int[12][5];
+    }
 
     public int getElement(int number, int number2) {    //возвращает нужный элемент из массива
         int element = matrix[number][number2];
@@ -21,10 +24,10 @@ public class matrix {
     }
 
     public int minElementMatrix() { //найти минимальный элемент в массиве
-        int min = 0;
+        int min = matrix[0][0];
         for (int i = 0; i < matrix.length - 1; i++) {
-            for (int j = 0; j < matrix[i].length - 1; j++) {
-                min = Math.min(matrix[i][j], matrix[i][j]);
+            for (int j = 1; j < matrix[i].length - 1; j++) {
+                min = Math.min(min, matrix[i][j]);
             }
         }
         return min;
@@ -34,7 +37,7 @@ public class matrix {
         int[][] matrix3 = new int[12][5];
         for (int i = 0; i < matrix.length - 1; i++) {
             for (int j = 0; j < matrix[i].length - 1; j++) {
-                matrix3[i][j] = matrix[i][j] + matrix2[i][j];
+                matrix[i][j] += matrix2[i][j];
             }
         }
         return matrix3;
@@ -110,4 +113,3 @@ public class matrix {
         return matrix3;
     }
 }
-
